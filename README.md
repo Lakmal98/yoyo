@@ -1,2 +1,3 @@
 # yoyo
-Online sales and Marketing system (Group Project for IS1109)
+Online sales and Marketing system 
+(Group Project for IS1109)

@@ -1,43 +1,151 @@
+<?php 
+
+require_once('db/db.php');
+session_start();
+
+if (isset($_SESSION['login']) && ($_SESSION['login']==true)) {
+  header("Location: user/index.php");
+  die();
+} 
+
+if (isset($_POST['login'])) {
+  $email = $conn->real_escape_string($_POST['email']);
+  $pass = $conn->real_escape_string($_POST['pass']);
+  $pass = md5($pass);
+
+    $queryCount = $conn->query("SELECT * FROM user WHERE email = '{$email}' AND password = '{$pass}';");
+    $conn->close();
+    if ($queryCount->num_rows == 1) {
+      $_SESSION['login'] = true;
+      header("Refresh:0");
+      die();
+    } else {
+      unset($_POST);
+      $_SESSION['loginError'] = "Invalid email or password. Try again.";
+      header("Refresh:0");
+      die();
+  }
+
+} elseif (isset($_POST['signUp'])) {
+
+    // remove sql injection threat
+    $email = $conn->real_escape_string($_POST['email']);
+    $fName = $conn->real_escape_string($_POST['fName']);
+    $lName = $conn->real_escape_string($_POST['lName']);
+    $tpNo = $conn->real_escape_string($_POST['tpNo']);
+    $pass = $conn->real_escape_string($_POST['pass']);
+
+    $pass = md5($pass);
+
+    $queryCount = $conn->query("SELECT * FROM user WHERE email = '{$email}';");
+    
+    if ($queryCount->num_rows == 0) {
+      $conn->query("INSERT INTO user (`email`, `fName`, `lName`, `tp`, `password`, `status`, `type`) VALUES ('{$email}', '{$fName}', '{$lName}', {$tpNo}, '{$pass}', 1, 1);");
+      $conn->close();
+      $_SESSION['loginSuccess'] = "Registered successfully. Login in to continue.";
+      unset($_POST);
+      header("Refresh:0");
+      die();
+
+    } else {
+      $_SESSION['loginError'] = "This email is already registered.Login in to continue.";
+      unset($_POST);
+      header("Refresh:0");
+      die();
+    }
+
+} else {
+  # code...
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Yoyo Online Market - Shop all you want</title>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="nav-btn-list">
+      <button class="btn signup-btn" id="signUp-btn" onclick="signUp();" >Sign Up</button>
+      <button class="btn login-btn" id="login-btn" onclick="login();" >Login</button>
+    </div>
+    <div class="box" id="login-box">
+      <img src="img/logo.png" alt="yoyo-logo">
+      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <div class="textbox">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="Email" name="email" tabindex="1" required>
+        </div>
+        <div class="textbox">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Password" name="pass" tabindex="2" required>
+        </div>
+        <div class="errorMsg">
+          <?php 
+            if (isset($_SESSION['loginError'])) {
+              echo $_SESSION['loginError'];
+            }
+           ?>
+        </div>
+        <div class="loginSuccess">
+          <?php 
+            if (isset($_SESSION['loginSuccess'])) {
+              echo $_SESSION['loginSuccess'];
+            }
+           ?>
+        </div>
+        <button type="submit" class="btn" name="login" tabindex="3">Login</button>
+        <div class="alt-link-div">
+          <span class="alt-link" tabindex="4">Forgot Password?</span>
+          <span> | </span>
+          <span onclick="signUp();" class="alt-link" tabindex="5">SignUp</span>
+        </div>
+      </form>
+    </div>
 
-	<link rel="stylesheet" type="text/css" href="css/style.css" >
-
-</head>
-<body>
-
-	<header>
-		<nav class="nav">
-			<h1>YoYo Homepage</h1>
-			<ul>
-				<li>
-					<button>Login</button>
-					<button>Sign in</button>
-				</li>
-			</ul>
-		</nav>
-	</header>
-
-	<!-- MAin contentet goes here -->
-
-	<main>
-		<div class="slider" style="]height: 60%;background-color: lightblue;">
-			<div style="margin-top: 15%;text-align: center;justify-content: center;">
-				An Animated slide will be here
-			</div>
-		</div>
-		<div class="login" style="display: none;">
-			Login form
-		</div>
-	</main>
-
-	<footer style="margin-top: 10px; border-top : solid 5px gray; border-bottom : solid 5px gray;text-indent: 37.5%;">
-		Footer | YoYo Inc. | © All rights reserved. 2019
-	</footer>
-	
-</body>
+    <div class="box" id="signUp-box">
+      <img src="img/logo.png" alt="yoyo-logo">
+      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <div class="textbox">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="Email" name="email" tabindex="1" required>
+        </div>
+        <div class="textbox">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="First Name" name="fName" tabindex="2" required>
+        </div>
+        <div class="textbox">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Last Name" name="lName" tabindex="3" required>
+        </div>
+        <div class="textbox">
+          <i class="fas fa-phone"></i>
+          <input type="text" placeholder="Telephone Number" name="tpNo" tabindex="4" minlength="10" maxlength="10" required>
+        </div>
+        <div class="textbox">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Password" name="pass" tabindex="5" required>
+        </div>
+        <div class="textbox">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Confirm Password" name="passConfirm" tabindex="6" required>
+        </div>
+        <div class="errorMsg">
+          <?php 
+            if (isset($_SESSION['loginError'])) {
+              echo $_SESSION['loginError'];
+            }
+           ?>
+        </div>
+        <button type="submit" class="btn" name="signUp" tabindex="7">Sign Up</button>
+        <div class="alt-link">
+          <span onclick="login();" tabindex="8">Already have an account?</span>
+        </div>
+      </form>
+    </div>
+  </body>
+  <script src="js/script.js"></script>
 </html>

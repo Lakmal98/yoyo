@@ -26,7 +26,13 @@
 		</nav>
 
 		<main>
-			
+			<div>Yoyo</div>
+			<div>Yoyo</div>
+			<div>Yoyo</div>
+			<div>Yoyo</div>
+			<div class="content">
+				
+			</div>
 		</main>
 	</header>
 </body>

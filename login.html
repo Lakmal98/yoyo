@@ -1,0 +1,75 @@
+<html>
+<head>
+<style type="text/css">
+form h1 {
+color: white;
+text-align: center;
+}
+form {
+font-size: 22px;
+color: white;
+}
+input {
+display: block;
+clear: both;
+}
+fieldset {
+margin: 1em 180;
+background-color: gray;
+}
+label input {
+display: block;
+color: red;
+}
+body {
+background: lightblue;
+}
+</style>
+<form name="userpage" method="post" enctype="multipart/form-data" action="/action_page.php">
+<title>User Profile Page</title>
+<h1>YOYO</h1>
+<h1>User Profile Management System</h1>
+</head>
+<body>
+<table>
+<img style="margin-left:25px;" src="profile-icon.png" width="200" height="200" />
+<tr><td><input type="file" name="image" ></td></tr>
+<tr><td><input name="Submit" type="submit" value="Upload image"></td></tr>
+</table>
+</form>
+<fieldset>
+<h2>Register New User</color></h2>
+<p>
+<label for="fullname">Full Name</label>
+<input type="text" name="name">
+</p>
+<p>
+<label for="dob">Date Of Birth</label>
+<input type="date">
+</p>
+<p>
+<label for="address">Residential Address</label><br/>
+<textarea rows="5" cols="25" name="address"></textarea>
+</p>
+<p>
+<p>
+<label for="email">Email Address</label>
+<input type="text" name="email">
+</p>
+<label for="phonenumber">Mobile Number </label>
+<input type="tel" name="tel">
+</p>
+</p>
+<label for="username">User Name </label>
+<input type="text" name="user">
+</p>
+</p>
+<label for="password">Password</label>
+<input type="password" name="pwd">
+</p>
+<p>
+<input type="reset" value="Reset"/>
+<input type="submit" value="Save"/>
+</p>
+</fieldset>
+</form>

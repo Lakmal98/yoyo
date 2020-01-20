@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<link type="text/css" rel="Stylesheet" href="admin.css">
-		<title> Admin Page </title>
+		<title> Add Item </title>
 	</head>
 	<body>
 	<div class="Outline">
@@ -17,7 +17,7 @@
 		<li class="dropdown">
 			<a href="javascript:void(0)" class="dropbtn">Add</a>
 			<div class="dropdown-content">
-				<a href="Add Item.php">Item</a>
+				<a href="./Add Item.php">Item</a>
 				<a href="./Add Sup.php">Supplier</a>
 			</div>
 		</li>
@@ -44,7 +44,21 @@
 		</li>		
 	</ul>
 
-<p><strong>Note:</strong> add something</p>
+<h1 align="center   ">Add Supplier</h1>
+<form name=add_supplier>
+    <label for="SName">Supplier Name</label>
+    <input type="text" name="Sname" placeholder="Supplier name..">
+
+	<label for="address">Address</label>
+    <input type="text" name="address" placeholder="Enter address..">
+
+	<label for="nic">NIC No</label>
+    <input type="text" name="nic" placeholder="Enter NIC No..">
+
+    <input type="submit" value="Submit">
+  </form>
+
+
 </div>
 </body>
 </html>

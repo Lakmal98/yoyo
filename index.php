@@ -4,7 +4,11 @@ require_once('db/db.php');
 session_start();
 
 if (isset($_SESSION['login']) && ($_SESSION['login']==true)) {
-  header("Location: user/index.php");
+  if (($_SESSION['userType'] == 1)) {
+    header("Location: user/index.php");
+  } else {
+    header("Location: admin/index.php");
+  }
   die();
 } 
 
@@ -17,6 +21,8 @@ if (isset($_POST['login'])) {
     $conn->close();
     if ($queryCount->num_rows == 1) {
       $_SESSION['login'] = true;
+      $resultCount = $queryCount->fetch_assoc();
+      $_SESSION['userType'] = $resultCount['type'];
       header("Refresh:0");
       die();
     } else {
@@ -64,6 +70,7 @@ if (isset($_POST['login'])) {
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="css/style.css">
   </head>

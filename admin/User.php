@@ -1,11 +1,13 @@
-<?php ?>
-
-<html>
-	<head>
-		<link type="text/css" rel="Stylesheet" href="admin.css">
-		<title> User Page </title>
-	</head>
-	<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Add Suplier </title>
+    
+    <link type="text/css" rel="stylesheet" href="css/admin.css">
+  </head>
+  <body>
 	<div class="Outline">
 		<div class="header">
 			<img src="logo.png" class="logo">

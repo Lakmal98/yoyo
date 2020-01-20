@@ -5,9 +5,8 @@ body{
 		  font-family: sans-serif;
 		  background: url("../img/bg.jpg");
 		  height: 100%;
-			  background-size: cover;
-		  background-position: center;
-		  background-repeat: none;
+		  background-size: cover;
+		  background-repeat: no-repeat;
 		  color: #fff;
 		}
 		.reset-form {
@@ -55,7 +54,7 @@ body{
 			padding: 5px;
 			font-size: 18px;
 			cursor: pointer;
-			margin: 12px 0;
+			margin: 12px 0; /*This cshould be removed due to repeat same proberty in the same reference*/
 			display: block;
     		margin: 0 70%;
 		}

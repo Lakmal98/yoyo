@@ -10,8 +10,8 @@
 	<body>
 		<div class="Outline">
 			<div class="header">
-				<img src="../img/logo.png" class="logo" onclick="location.replace('../index');">
-				<h3 onclick="location.replace('../index');">YOYO</h3>
+				<img src="../img/logo.png" class="logo" onclick="location.replace('../');">
+				<h3 onclick="location.replace('../');">YOYO</h3>
 				<h2 class="Name" >Dashboard</h2>
 			</div>
 

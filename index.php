@@ -1,13 +1,13 @@
 <?php 
 
-require_once('db/db.php');
+require_once('db/db');
 session_start();
 
 if (isset($_SESSION['login']) && ($_SESSION['login']==true)) {
   if (($_SESSION['userType'] == 1)) {
-    header("Location: user/index.php");
+    header("Location: user/index");
   } else {
-    header("Location: admin/index.php");
+    header("Location: admin/index");
   }
   die();
 } 

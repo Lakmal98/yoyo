@@ -2,7 +2,7 @@
 
 			<div class="content">
 				<h1 align="center">Add Supplier</h1>
-				<form name=add_supplier>
+				<form name="add_supplier" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 				    <label for="SName">Supplier Name</label>
 				    <input type="text" name="Sname" >
 

@@ -20,6 +20,14 @@ body {
 		background-color:black ; 
 		border-bottom-style: solid ;
 	}
+.header > h3 {
+  left:70px;
+  display:inline;
+  color:white;
+}
+.header > h3, img {
+  cursor: pointer;
+}
 .logo{
 		margin:5px;
 		width:50px;

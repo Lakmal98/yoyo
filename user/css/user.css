@@ -1,0 +1,155 @@
+body {
+  margin: 0;
+  font-size: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../../img/sale.jpg'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  padding: 30px;
+  text-align: center;
+  color: #fff;
+}
+
+#nav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+#nav > span {
+	float: right;
+}
+
+#nav > span > form {
+	float: left;
+	transform: translateX(-325%);
+}
+
+#nav > span > form input {
+	width: 250%;
+	padding: 5% 0;
+	line-height: 10%;
+	margin: 7.5% 0;
+	border: none;
+	border-radius: 5px;
+	text-indent: 10px;
+	outline: none;
+	background-color: rgba(255,255,255,0.1);
+	color: #fff;
+}
+
+.fa-search {
+	transform: translateX(-620%);
+	margin-top: 2%;
+}
+.fa-search:hover {
+	background-color: transparent;
+	border-radius: 50%;
+}
+
+#submit {
+	display: none;
+}
+
+#nav i {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#nav i:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#nav i.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
+#side-nav {
+	display: none;
+	position: absolute;
+	z-index: 99;
+	width: 20%;
+	height: auto;
+	transition: 1s;
+	background-color: rgba(0,0,0, 0.5);
+	border: solid 0.4px gray;
+	border-left: none;
+	color: #fff;
+	padding-left: 5%;
+	transition: 1s;
+}
+
+.fa-times{
+	float: right;
+	margin: 5px 10px 0 0;
+	color: #ccc;
+	transition: 0.2s;
+}
+.fa-times:hover {
+	font-size: 30px;
+	color: #fff;
+	transition: 0.2s;
+}
+
+.fa-bars {
+	transition: 0.2s;
+}
+
+.fas {
+	cursor: pointer;
+}
+
+.col {
+	display: inline-block;
+	margin: 1%;
+	padding: 1%;
+	background: rgba(255,255,255, 0.2);
+	width: 18%;
+}
+
+.item-picture {
+	width: 95%;
+	margin-left: 2.5%;
+}
+
+.price {
+	color: #fff;
+	margin-left: 2.5%;
+	font-size: 20px;
+}
+.price > span {
+	color: pink;
+	float: right;
+}
+
+.description {
+	margin-top: 10%;
+	font-size: 50%;
+	text-align: justify;
+	color: #ccc;
+	padding-left: 2.5%;
+}

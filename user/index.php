@@ -9,31 +9,56 @@
 	<link rel="stylesheet" type="text/css" href="css/user.css" >
 </head>
 <body>
-	<header>
-		<nav class="nav">
-			<div class="figure">
-				<a href="http://yoyo.ihostfull.com/">
-					<img src="../img/logo.png" alt="YoYo Logo" width="4%" />
-				</a>
-			</div>
-			<ul>
-				<li>
-					<form action="<?php echo $_SERVER['PHP_SELF']; ?>">
-						<input type="text" name="s" id="s" />
-					</form>
-				</li>
-			</ul>
-		</nav>
+	<div class="header">
+	  <h2>YoYo Online Market</h2>
+	  <p>New Year sale</p>
+	</div>
 
-		<main>
-			<div>Yoyo</div>
-			<div>Yoyo</div>
-			<div>Yoyo</div>
-			<div>Yoyo</div>
-			<div class="content">
-				
+	<nav id="nav">
+	  <i class="fas fa-bars" onclick="showSideNav();"></i>
+	  <a href="../index"><i class="fas fa-home"></i></a>
+	  <span>
+	  	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method='get'>
+	  		<input type="text" name="s" id="searchBox" placeholder="Search...">
+	  		<button type="submit" name="q" id="submit" value="true"></button>
+	  	</form>
+		  <i class="fas fa-search" onclick="search();"></i>
+		  <i class="fas fa-shopping-cart"></i>
+		  <i class="fas fa-user"></i>
+	  </span>
+	</nav>
+
+	<div id="side-nav">
+	  <i class="fas fas fa-times" onclick="hideSideNav();"></i>
+	  <ul>
+	  	<li>Category</li>
+	  	<ul>
+	  		<li>1</li>
+	  		<li>2</li>
+	  		<li>3</li>
+	  	</ul>
+	  </ul>
+	</div>
+
+	<main>
+		<center>
+		<?php for ($i=0; $i < 12; $i++) { ?>
+			<div class="col">
+				<img src="../img/sale.jpg" alt="Item picture" class="item-picture">
+				<div class="price">
+					Rs. 150.40
+					<span>
+						50% off
+					</span>
+				</div>
+				<div class="description">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				</div>
 			</div>
-		</main>
-	</header>
+		<?php } ?>
+		</center>	
+	</main>
+
+	<script src="js/user.js"></script>
 </body>
 </html>

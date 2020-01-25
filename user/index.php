@@ -23,7 +23,7 @@
 	  		<button type="submit" name="q" id="submit" value="true"></button>
 	  	</form>
 		  <i class="fas fa-search" onclick="search();"></i>
-		  <i class="fas fa-shopping-cart"></i>
+		  <a href="cart" target="_blank"><i class="fas fa-shopping-cart"></i></a>
 		  <i class="fas fa-user"></i>
 	  </span>
 	</nav>

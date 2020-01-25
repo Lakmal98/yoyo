@@ -1,0 +1,110 @@
+* body {
+	color: #fff;
+}
+
+.cart > div {
+	display: inline;
+	float: left;
+	background-color: rgba(250,250,250, 0.3);
+	margin-left: 2%;
+	padding: 1%;
+	border-radius: 4px;
+}
+.select-cart {
+	width: 70%;
+	margin-top: 5%; 
+}
+.summary {
+	width: 20%;
+	margin-top: 5%;
+}
+.cart-list {
+	clear: both;
+	margin-top: -8%;
+	width: 70%;
+}
+
+.select-div {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	user-select: none;
+	}
+.select-div input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.select-mark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: transparent;
+  border-radius: 10px;
+  border: solid 1px gray;
+}
+
+.select-div:hover input ~ .select-mark {
+  background-color: gray;
+}
+
+.select-div input:checked ~ .select-mark {
+  background-color: lightblue;
+}
+
+label {
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.select-mark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.select-div input:checked ~ .select-mark:after {
+  display: block;
+}
+
+.select-div .select-mark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.summary > div > div {
+	text-transform: uppercase;
+	text-align: justify;
+	margin-bottom: 5%;
+} 
+
+.summary > div > div > span {
+	float: right;	
+} 
+
+.total {
+	font-weight: bold;
+	font-size: 25px;
+}
+
+.btn {
+	border: none;
+	border-radius: 4px;
+	background-color: rgba(255,0,0,0.8);
+	outline: none;
+}
+
+.btn:hover {
+	background-color: darkred;
+}

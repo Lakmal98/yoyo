@@ -1,3 +1,5 @@
+@import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
+
 html, body {
   height: 100%;
 }
@@ -146,6 +148,10 @@ li.dropdown {
   text-align: center;
 }
 
+form {
+  transition: 0.4s;
+}
+
 .content > form > label, input, button {
   display: block;
   margin : 0 auto;
@@ -199,4 +205,12 @@ li.dropdown {
       margin: 2% auto;
       font-size: 18px;
       cursor: pointer;
+      outline: none;
+      transition: 0.5s;
     }
+  .btn:hover {
+    background-color: rgba(0,255,0, 0.4);
+  }
+#add_quantity {
+  display: none;
+}

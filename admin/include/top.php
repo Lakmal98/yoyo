@@ -1,3 +1,4 @@
+<?php require_once('../db/db.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,8 @@
 		<title><?php echo $_SERVER['PHP_SELF']; ?></title>
 		
 		<link type="text/css" rel="stylesheet" href="css/admin.css">
+
+		<script src="js/script.js"></script>
 	</head>
 	<body>
 		<div class="Outline">

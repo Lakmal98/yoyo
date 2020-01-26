@@ -48,6 +48,7 @@
   background-color: transparent;
   border-radius: 10px;
   border: solid 1px gray;
+  transition: 0.5s;
 }
 
 .select-div:hover input ~ .select-mark {
@@ -107,4 +108,24 @@ label {
 
 .btn:hover {
 	background-color: darkred;
+}
+
+.cart-item > .select-div > img {
+	width: 20%;
+}
+
+.cart-item .select-mark {
+	transform: translateY(200%);
+}
+
+.cart-item .select-div .desc-div {
+	float: left;
+	float: right;
+	padding-right: 30%;
+}
+
+.desc-div > .price {
+	font-weight: bold;
+	font-size: 20px;
+	margin-top: 12.5%;
 }

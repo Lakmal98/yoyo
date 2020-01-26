@@ -52,10 +52,21 @@
 			</div>
 		</div>
 		<div class="cart-list">
-			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat cumque iure quis, debitis unde illum nesciunt id rem blanditiis quibusdam voluptas? Laboriosam, quod ducimus assumenda maiores possimus unde ipsa totam.</div>
-			<div>Saepe provident quidem dolore ullam aperiam illum inventore similique at sequi animi hic harum sed recusandae tempore, laborum molestiae quas iusto esse? Accusantium molestias eum consequuntur eaque ut beatae quibusdam.</div>
-			<div>Nobis optio perferendis culpa, aut eligendi ea voluptate nisi modi reprehenderit doloribus, nihil iure minima sit aspernatur aliquid vero quasi qui, ipsum rerum debitis eaque architecto animi quo? Ipsam, cum!</div>
-			<div>Non libero quos in officia veritatis obcaecati earum veniam nobis ullam! Asperiores fugit officia sunt iure, dolor magni blanditiis aliquam quaerat beatae ut. Quaerat deserunt esse qui magni nobis quo.</div>
+			<div class="cart-item">
+				<div class="select-div">
+					<input type="checkbox" name="select-item-1" id="select-item-1">
+					<span class="select-mark" onclick="clickThis('select-item-1');"></span>
+					<img src="../img/sale.jpg" alt="Item-thumbnail">
+					<span class="desc-div">
+						<div class="description">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+						</div>
+						<div class="price">
+							LKR 200.34
+						</div>
+					</span>
+				</div>
+			</div>
 		</div>
 	</div>
 </main>

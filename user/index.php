@@ -1,4 +1,12 @@
 <?php require_once('include/check-login.php'); ?>
+<?php 
+	if (isset($_POST['addToCart'])) {
+		$sql = "INSERT INTO cart (userId, itemId, quantity) VALUES ({$_SESSION['userId']}, {$_POST['addToCart']}, 0);";
+		if ($conn->query($sql) === false) {
+			echo "<script>alert('Failed to add item to the cart.');</script>";
+		}
+	}
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,18 +55,25 @@
 
 	<main>
 		<center>
-		<?php for ($i=0; $i < 12; $i++) { ?>
+		<?php 
+		$sql = "SELECT * FROM item;";
+		$query = $conn->query($sql);
+		while($result = $query->fetch_assoc()) { ?>
 			<div class="col">
-				<img src="../img/sale.jpg" alt="Item picture" class="item-picture">
+				<img src="<?php echo $result['thumbnail']; ?>" alt="Item picture" class="item-picture">
 				<div class="price">
-					Rs. 150.40
+					Rs. <?php echo $result['unitPrice']; ?>
 					<span>
 						50% off
 					</span>
 				</div>
 				<div class="description">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					<?php echo $result['description']; ?>
 				</div>
+				<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+					<i class="fas fa-plus" onclick="addToCart('addToCart<?php  echo $result['itemId']; ?>');"></i>
+					<button name="addToCart" value="<?php echo $result['itemId']; ?>" class='add-to-cart' id='addToCart<?php echo $result['itemId']; ?>'></button>
+				</form>
 			</div>
 		<?php } ?>
 		</center>	
@@ -67,3 +82,4 @@
 	<script src="js/user.js"></script>
 </body>
 </html>
+<?php $conn->close(); ?>

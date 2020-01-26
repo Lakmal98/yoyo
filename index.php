@@ -28,6 +28,7 @@ if (isset($_POST['login'])) {
     if ($queryCount->num_rows == 1) {
       $_SESSION['login'] = true;
       $resultCount = $queryCount->fetch_assoc();
+      $_SESSION['userId'] = $resultCount['userId'];
       $_SESSION['userType'] = $resultCount['type'];
       $_SESSION['userStatus'] = $resultCount['status'];
       header("Refresh:0");

@@ -1,6 +1,10 @@
+function _(id) {
+	return document.getElementById(id);
+}
+
 window.onscroll = function() {myFunction()};
 
-var nav = document.getElementById("nav");
+var nav = _("nav");
 var sticky = nav.offsetTop;
 
 function myFunction() {
@@ -12,13 +16,17 @@ function myFunction() {
 }
 
 function showSideNav() {
-	document.getElementById('side-nav').style.display = "block";
+	_('side-nav').style.display = "block";
 }
 
 function hideSideNav() {
-	document.getElementById('side-nav').style.display = "none";
+	_('side-nav').style.display = "none";
 }
 
 function search() {
-	document.getElementById('submit').click();
+	_('submit').click();
+}
+
+function addToCart(id) {
+	_(id).click();
 }

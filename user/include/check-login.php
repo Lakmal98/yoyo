@@ -12,4 +12,5 @@
 	} else {
 		header("Location: /yoyo/index");
 	}
+	require_once('../db/db.php');
  ?>

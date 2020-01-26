@@ -102,7 +102,7 @@ if (isset($_POST['login'])) {
           <?php 
             if (isset($_SESSION['loginSuccess'])) {
               echo $_SESSION['loginSuccess'];
-              unset ($_SESSION['loginError']);
+              unset ($_SESSION['loginSuccess']);
             }
            ?>
         </div>

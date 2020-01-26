@@ -36,8 +36,8 @@
 			<li class="dropdown">
 				<a href="javascript:void(0)" class="dropbtn">Manage Users</a>
 				<div class="dropdown-content">
-					<a href="#">User</a>
-					<a href="#">Permission</a>
+					<a href="manage-user">User</a>
+					<a href="user-permission">Permission</a>
 				</div>
 			</li>
 			<li class="dropdown">

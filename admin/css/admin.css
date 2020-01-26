@@ -310,3 +310,16 @@ td > form > button {
 .fa-check:hover {
   color:green;
 }
+
+.logout {
+  margin-top: 8%;
+  width: 100%;
+  color: #000;
+  border-radius: 5px;
+  border: solid 1.5px darkred;
+}
+
+.logout:hover {
+  background-color: red;
+  color: #fff;
+}

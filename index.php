@@ -4,12 +4,18 @@ require_once('db/db.php');
 session_start();
 
 if (isset($_SESSION['login']) && ($_SESSION['login']==true)) {
-  if (($_SESSION['userType'] == 1)) {
-    header("Location: user/index");
+  if ($_SESSION['userStatus'] == 1) {
+    if (($_SESSION['userType'] == 1)) {
+      header("Location: user/index");
+    } else {
+      header("Location: admin/index");
+    }
+    die();
+  } elseif ($_SESSION['userStatus']==0) {
+    $_SESSION['loginError'] = "You are not confirmed, user details.";
   } else {
-    header("Location: admin/index");
+    $_SESSION['loginError'] = "You are banned by Adminstration.";
   }
-  die();
 } 
 
 if (isset($_POST['login'])) {
@@ -23,6 +29,7 @@ if (isset($_POST['login'])) {
       $_SESSION['login'] = true;
       $resultCount = $queryCount->fetch_assoc();
       $_SESSION['userType'] = $resultCount['type'];
+      $_SESSION['userStatus'] = $resultCount['status'];
       header("Refresh:0");
       die();
     } else {

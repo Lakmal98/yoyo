@@ -1,3 +1,10 @@
+<?php 
+	if (isset($_SESSION['login']) && ($_SESSION['login']==true)) {
+		// allow user 
+	} else {
+		header("Location: /yoyo/index");
+}
+ ?>
 <?php require_once("../../db/db.php") ?>
 <?php 
 	if (isset($_GET['u'])) {

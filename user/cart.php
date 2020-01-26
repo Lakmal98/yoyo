@@ -1,3 +1,4 @@
+<?php require_once('include/check-login.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

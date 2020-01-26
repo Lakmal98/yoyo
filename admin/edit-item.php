@@ -5,6 +5,7 @@
 		$sql = "UPDATE item SET categoryId = {$_POST['categeory']}, supplierId = {$_POST['sup']}, unitPrice = {$_POST['unitPrice']}, description = '{$_POST['description']}' WHERE itemName = '{$_POST['itemName']}';";
 		if ($conn->query($sql) === true) {
 			echo "<script>alert('Updated Successfully.'); </script>";
+			unset($_POST);
 		} else {
 			echo "<script>alert('Failed to update.'); </script>";
 		}

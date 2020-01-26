@@ -8,12 +8,12 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
-.Outline{
+/*.Outline{
     border:1px solid #fff;
     border-top: none;
     border-radius: 4px;
     height:100%;
-  }
+  }*/
 .header{
 		height:60px;
 		padding:5px ; 

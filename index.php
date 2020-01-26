@@ -94,6 +94,7 @@ if (isset($_POST['login'])) {
           <?php 
             if (isset($_SESSION['loginError'])) {
               echo $_SESSION['loginError'];
+              unset ($_SESSION['loginError']);
             }
            ?>
         </div>
@@ -101,6 +102,7 @@ if (isset($_POST['login'])) {
           <?php 
             if (isset($_SESSION['loginSuccess'])) {
               echo $_SESSION['loginSuccess'];
+              unset ($_SESSION['loginError']);
             }
            ?>
         </div>
@@ -134,25 +136,26 @@ if (isset($_POST['login'])) {
         </div>
         <div class="textbox">
           <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Password" name="pass" tabindex="5" required>
+          <input type="password" placeholder="Password" name="pass" tabindex="5" required id="pass" onkeyup="signupValidate();" minlength="6">
         </div>
         <div class="textbox">
           <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Confirm Password" name="passConfirm" tabindex="6" required>
+          <input type="password" placeholder="Confirm Password" name="passConfirm" tabindex="6" required id="passConfirm" onkeyup="signupValidate();" minlength="6">
         </div>
-        <div class="errorMsg">
+        <div class="errorMsg" id="errorMsg">
           <?php 
             if (isset($_SESSION['loginError'])) {
               echo $_SESSION['loginError'];
+              unset ($_SESSION['loginError']);
             }
            ?>
         </div>
-        <button type="submit" class="btn" name="signUp" tabindex="7">Sign Up</button>
+        <button type="submit" class="btn" name="signUp" tabindex="7" id="signUp">Sign Up</button>
         <div class="alt-link">
           <span onclick="login();" tabindex="8">Already have an account?</span>
         </div>
       </form>
     </div>
+    <script src="js/script.js"></script>
   </body>
-  <script src="js/script.js"></script>
 </html>

@@ -26,6 +26,10 @@
 		  <i class="fas fa-search" onclick="search();"></i>
 		  <a href="cart" target="_blank"><i class="fas fa-shopping-cart"></i></a>
 		  <i class="fas fa-user"></i>
+		  <form action="<?php echo $_SERVER['PHP_SELF']; ?>" id='logout-form' method='post'>
+				<i class="fas fa-sign-out-alt" onclick="document.getElementById('logout-btn').click();"></i>
+			<button type="submit" name="logout" id="logout-btn"></button>
+		  </form>
 	  </span>
 	</nav>
 

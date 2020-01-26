@@ -153,3 +153,7 @@ body {
 	color: #ccc;
 	padding-left: 2.5%;
 }
+
+#logout-btn {
+	display: none;
+}

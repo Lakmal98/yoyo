@@ -21,13 +21,13 @@
 				<h1 align="center">Add Supplier</h1>
 				<form name="add_supplier" method="post" action="<?php echo chop($_SERVER['PHP_SELF'], '.php') . 'p'; ?>">
 				    <label for="SName">Supplier Name</label>
-				    <input type="text" name="sName" id="sName">
+				    <input type="text" name="sName" id="sName" required>
 
 					<label for="address">Address</label>
-				    <input type="text" name="address" >
+				    <input type="text" name="address" required>
 
 					<label for="nic">NIC or BR No</label>
-				    <input type="text" name="nic" >
+				    <input type="text" name="nic" required>
 
 				    <button class="btn" type="submit" name="submit"> Add Suplier</button>
 				</form>

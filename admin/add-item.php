@@ -28,7 +28,7 @@
 		<h1 align="center">Add Item</h1>
 		<form name="add_item" method="post" action="<?php echo chop($_SERVER['PHP_SELF'], '.php'); ?>">
 		    <label for="Itemname">Item Name</label>
-		    <input type="text" name="itemName" id="itemName" tabindex="1" required list="item-list">
+		    <input type="text" name="itemName" id="itemName" tabindex="1" required list="item-list" value="<?php if(isset($_GET['new'])) {echo $_GET['new'];} ?>">
 				<datalist id="item-list">
 					<?php 
 						$query = $conn->query("SELECT itemId, itemName FROM item;");

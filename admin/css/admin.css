@@ -214,3 +214,7 @@ form {
 #add_quantity {
   display: none;
 }
+
+h4 span {
+  font-size: 30px;
+}

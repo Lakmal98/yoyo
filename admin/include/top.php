@@ -29,7 +29,7 @@
 			<li class="dropdown">
 				<a href="javascript:void(0)" class="dropbtn">Edit</a>
 				<div class="dropdown-content">
-					<a href="#">Items</a>
+					<a href="edit-item">Items</a>
 					<a href="#">Suppliers</a>
 				</div>
 			</li>

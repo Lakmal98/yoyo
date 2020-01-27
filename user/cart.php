@@ -1,4 +1,5 @@
 <?php require_once('include/check-login.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,13 +15,23 @@
 <main>
 	<div class="cart">
 		<div class="select-cart">
-			<h2>Shopping Cart (3)</h2>
+			<h2>Shopping Cart (
+				<?php 
+					$sql = "SELECT COUNT(userId) FROM cart WHERE userId = {$_SESSION['userId']};";
+					$result  = ($conn->query($sql))->fetch_array();
+					if ($result[0] > 0) {
+						echo $result[0];
+					}
+				 ?>
+			)</h2>
 			<div class="select-div">
-				<input type="checkbox" name="select" id="select">
+				<form action="" method="post">
+				<i class="fas fa-trash"></i>
 				<label for="select">
-					Select All
+					Remove All
 				</label>
-				<span class="select-mark" onclick="clickThis('select');"></span>
+				<button type="submit" name="removeAll" class="remove-btn"></button>
+				</form>
 			</div>
 		</div>
 		<div class="summary">
@@ -53,21 +64,37 @@
 			</div>
 		</div>
 		<div class="cart-list">
+			<?php 
+				$sql = "SELECT * FROM cart WHERE userId = {$_SESSION['userId']};";
+				$query = $conn->query($sql);
+				while ($result = $query->fetch_assoc()) {
+			?>
 			<div class="cart-item">
 				<div class="select-div">
-					<input type="checkbox" name="select-item-1" id="select-item-1">
-					<span class="select-mark" onclick="clickThis('select-item-1');"></span>
-					<img src="../img/sale.jpg" alt="Item-thumbnail">
+					<form action="" method="post">
+						<button type="submit" name="select-item-<?php echo $result['cartLog']; ?>" value='<?php echo $result['cartLog']; ?>' class='trash-btn'>
+							<i class="fas fa-trash"></i>
+						</button>
+					</form>
+					<span class="select-mark" onclick="clickThis('select-item-<?php echo $result['cartLog']; ?>');"></span>
+					<?php 
+						$sql = "SELECT * FROM item WHERE itemId = {$result['itemId']};";
+						$results = ($conn->query($sql))->fetch_assoc();
+					 ?>
+					<img src="<?php echo $results['thumbnail']; ?>" alt="Item-thumbnail">
 					<span class="desc-div">
 						<div class="description">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+							<?php $results['description']; ?>
 						</div>
 						<div class="price">
-							LKR 200.34
+							<?php $results['unitPrice']; ?>
 						</div>
 					</span>
 				</div>
 			</div>
+			<?php
+				}
+			 ?>
 		</div>
 	</div>
 </main>

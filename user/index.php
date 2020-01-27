@@ -1,10 +1,8 @@
 <?php require_once('include/check-login.php'); ?>
 <?php 
 	if (isset($_POST['addToCart'])) {
-		$sql = "INSERT INTO cart (userId, itemId, quantity) VALUES ({$_SESSION['userId']}, {$_POST['addToCart']}, 0);";
-		if ($conn->query($sql) === false) {
-			echo "<script>alert('Failed to add item to the cart.');</script>";
-		}
+		echo "<script>let num = prompt('How many items do you want add?:', '');if (num == null || num == '') { alert('Enater valid amount');
+  			} else { location.replace('include/add-to-cart?num='+num+'&item={$_POST['addToCart']}'); }</script>";
 	}
  ?>
 <!DOCTYPE html>
@@ -24,7 +22,7 @@
 	</div>
 
 	<nav id="nav">
-	  <i class="fas fa-bars" onclick="showSideNav();"></i>
+	  <i class="fas fa-bars" onclick="//showSideNav();"></i>
 	  <a href="../index"><i class="fas fa-home"></i></a>
 	  <span>
 	  	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method='get'>
@@ -32,7 +30,17 @@
 	  		<button type="submit" name="q" id="submit" value="true"></button>
 	  	</form>
 		  <i class="fas fa-search" onclick="search();"></i>
-		  <a href="cart" target="_blank"><i class="fas fa-shopping-cart"></i></a>
+		  <a href="cart" target="_blank">
+		  	<i class="fas fa-shopping-cart">
+	  		 	<?php 
+	  		 		$sql = "SELECT COUNT(userId) FROM cart WHERE userId = {$_SESSION['userId']};";
+	  		 		$result  = ($conn->query($sql))->fetch_array();
+	  		 		if ($result[0] > 0) {
+	  		 			echo "<span>{$result[0]}</span>";
+	  		 		}
+	  		 	 ?>
+		  	</i>
+		  </a>
 		  <i class="fas fa-user"></i>
 		  <form action="<?php echo $_SERVER['PHP_SELF']; ?>" id='logout-form' method='post'>
 				<i class="fas fa-sign-out-alt" onclick="document.getElementById('logout-btn').click();"></i>
@@ -69,6 +77,10 @@
 				</div>
 				<div class="description">
 					<?php echo $result['description']; ?>
+				</div>
+				<div class="stock">
+					Stock : 
+					<?php echo $result['quantity']; ?>
 				</div>
 				<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 					<i class="fas fa-plus" onclick="addToCart('addToCart<?php  echo $result['itemId']; ?>');"></i>

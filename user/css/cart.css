@@ -74,10 +74,17 @@
 .fa-trash {
 	color: #f24;
 	cursor: pointer;
+	transition: 0.5s;
+}
+
+.fa-trash:hover {
+	color: pink;
 }
 
 .remove-btn {
-	display: none;
+	background-color: transparent;
+	border: none;
+	outline: none;
 }
 
 .trash-btn {
@@ -86,3 +93,22 @@
 	display: inline;float: left;
 }
 
+.quantity-added {
+	float: right;
+	color: #000;
+}
+
+#payment-window {
+	/*display: none;*/
+	position: absolute;
+	z-index: 100;
+	width: 40%;
+	height: 60%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border: solid 3px #555;
+	border-radius: 4px;
+	padding: 10px;
+	background-color: rgba(255,255,255,1);
+}

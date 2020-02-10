@@ -61,7 +61,7 @@
 		    <label for="description">Description</label>
 		    <input type="text" name="description" tabindex="6" required minlength="10">
 		    <label for="thumbnail">Thumbnail</label>
-		    <input type="file" name="thumbnail" required>
+		    <input type="file" name="thumbnail" accept="image/*" required>
 		  
 		    <button type="submit" name="submit" class="btn" tabindex="8"> Add item </button>
 		  </form>

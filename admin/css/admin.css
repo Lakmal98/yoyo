@@ -323,3 +323,10 @@ td > form > button {
   background-color: red;
   color: #fff;
 }
+
+.thumbnail {
+  min-width: 60px;
+  min-height: 40px;
+  width: 60px;
+  height: 40px;
+}

@@ -99,7 +99,7 @@
 }
 
 #payment-window {
-	/*display: none;*/
+	display: none;
 	position: absolute;
 	z-index: 100;
 	width: 40%;
@@ -111,4 +111,46 @@
 	border-radius: 4px;
 	padding: 10px;
 	background-color: rgba(255,255,255,1);
+	text-align: center;
+	color: #000;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance:textfield;
+}
+
+#payment-window label {
+	display: block;
+	text-align: left;
+	transform: translateX(24%);
+	margin-bottom: 10px;
+	margin-top: 15px;
+}
+
+#payment-window input {
+	width: 50%;
+	outline: none;
+	border: none;
+	border-bottom: 1px red solid;
+}
+
+#payment-window button {
+	margin-top: 5px;
+	width: 50%;
+	background-color: gray;
+}
+
+#closePayment {
+	float: right;
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+#closePayment:hover {
+	color: red;
 }

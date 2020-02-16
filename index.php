@@ -31,6 +31,8 @@ if (isset($_POST['login'])) {
       $_SESSION['userId'] = $resultCount['userId'];
       $_SESSION['userType'] = $resultCount['type'];
       $_SESSION['userStatus'] = $resultCount['status'];
+      $_SESSION['fName'] = $resultCount['fName'];
+      $_SESSION['lName'] = $resultCount['lName'];
       header("Refresh:0");
       die();
     } else {

@@ -4,13 +4,14 @@
 		echo "<script>let num = prompt('How many items do you want add?:', '');if (num == null || num == '') { alert('Enater valid amount');
   			} else { location.replace('include/add-to-cart?num='+num+'&item={$_POST['addToCart']}'); }</script>";
 	}
+	
  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title><?php //echo $_SESSION['fName'] . " " . $_SESSION['lName'] ; ?> | YoYo Online Store</title>
+	<title><?php echo $_SESSION['fName'] . " " . $_SESSION['lName'] ; ?> | YoYo Online Store</title>
 
 	<link rel="stylesheet" type="text/css" href="../css/style.css" >
 	<link rel="stylesheet" type="text/css" href="css/user.css" >
@@ -41,7 +42,9 @@
 	  		 	 ?>
 		  	</i>
 		  </a>
-		  <i class="fas fa-user"></i>
+		  <a href="profile">
+		  	<i class="fas fa-user"></i>
+		  </a>
 		  <form action="<?php echo $_SERVER['PHP_SELF']; ?>" id='logout-form' method='post'>
 				<i class="fas fa-sign-out-alt" onclick="document.getElementById('logout-btn').click();"></i>
 			<button type="submit" name="logout" id="logout-btn"></button>
@@ -64,8 +67,15 @@
 	<main>
 		<center>
 		<?php 
-		$sql = "SELECT * FROM item;";
+		if (isset($_GET['q']) && $_GET['q'] == true) {
+			$sql = "SELECT * FROM item WHERE itemName LIKE '%{$_GET['s']}%' OR description LIKE '%{$_GET['s']}%';";
+		} else {
+			$sql = "SELECT * FROM item;";
+		}
 		$query = $conn->query($sql);
+		if ($query->num_rows == 0) {
+			echo "<h4 style='color:#fff;'> Sorry . No result Found ....</h4>";
+		}
 		while($result = $query->fetch_assoc()) { ?>
 			<div class="col">
 				<img src="<?php echo $result['thumbnail']; ?>" alt="Item picture" class="item-picture">

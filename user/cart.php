@@ -85,8 +85,8 @@
 				</div>
 			</div>
 			<div>
-				<form action="" method="post">
-					<button type="submit" class="btn" name="buy">
+				<!-- <form action="" method="post"> -->
+					<button type="button" class="btn" name="buy" onclick="_('payment-window').style.display='block';">
 						BUY (<?php 
 							if ($result[0] > 0) {
 								echo $result[0];
@@ -95,7 +95,7 @@
 							}
 						 ?>)
 					</button>
-				</form>
+				<!-- </form> -->
 			</div>
 		</div>
 		<div class="cart-list" <?php if ($result[0] <= 0) { echo "style='display: none;'"; } ?> >
@@ -136,7 +136,31 @@
 		</div>
 	</div>
 	<div id="payment-window">
-		card
+		<form action="include/purchace" method="post">
+			<i class="fas fa-times" onclick="closePayment();" id="closePayment"></i>
+			<h3 style="clear: both;">Visa/Master Card</h3>
+			<div>
+				<label> Card Holders Name </label>
+				<input type="text" placeholder="Holder Name" minlength="3" required id="cName" name="cName" onkeyup="cardValidate();">
+			</div>
+			<div>
+				<label> Card Number </label>
+				<input type="number" placeholder="xxxx xxxx xxxx xxxx" min="0" required id="cNum" name="cNum" onkeyup="cardValidate();">
+			</div>
+			<div>
+				<label>Expire Date </label>
+				<input type="number" placeholder="year" max="2028" min="2020" required style="max-width: 24%;" id="cYear" name="cYear" onkeyup="cardValidate();">
+				<input type="number" placeholder="month" min="1" max="12" required style="max-width: 24%;" id="cMonth" name="cMonth" onkeyup="cardValidate();">
+			</div>
+			<div>
+				<label>CCV </label>
+				<input type="number" min="000" max="999" required name="ccv" id="ccv" onkeyup="cardValidate();">
+			</div>
+			<div>
+				<div style="padding: 15px 0 0 0;font-weight: bold;color: red;font-size: 25px;"><?php echo "LKR " . number_format($cost, 2); ?></div>
+				<button type="submit" name="purchace" class="btn" id="purchace" disabled>Purchase</button>
+			</div>
+		</form>
 	</div>
 </main>
 

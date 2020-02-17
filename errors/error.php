@@ -18,11 +18,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title><?php echo $result[0]; ?> | <?php echo $result[1]; ?></title>
+	<link rel="stylesheet" href="/yoyo/css/style.css">
+	<link rel="stylesheet" href="/yoyo/user/css/user.css">
 </head>
-<body>
+<body style="text-align: center; color: #fff;">
 	<h1> <?php echo $result[0]; ?> </h1>
 	<h3> <?php echo $result[1]; ?> </h3>
 	<h5><?php echo $result[2]; ?></h5>
+	<a href="/yoyo">
+		<button class="btn" style="width: 15%;border-radius: 7px;">Back to YoYo HOME</button>
+	</a>
 </body>
 </html>
 

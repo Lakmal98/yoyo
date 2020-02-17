@@ -44,17 +44,25 @@
 
 		    <label for="categeory">Categeory</label>
 		    <select id="categeory" name="categeory" tabindex="2" required>
-		      <option value="1">Electric Item</option>
-		      <option value="2">Clothing</option>
-		      <option value="3">Jwellery</option>
+		    <?php 
+		    	$sql = "SELECT * FROM category;";
+		    	$query = $conn->query($sql);
+		    	while ($result = $query->fetch_assoc()) {
+		    		echo "<option value='{$result['categoryId']}'>{$result['name']}</option>";
+		    	}
+		     ?>
 		    </select>
 			<label for="qty">Quantity</label>
 		    <input type="number" name="qty" min="1" tabindex="3" required>
 			<label for="sup">Supplier</label>
 		    <select id="sup" name="sup" tabindex="4" required>
-		      <option value="1">Supplier 1</option>
-		      <option value="2">Supplier 2</option>
-		      <option value="3">Supplier 3</option>
+		      <?php 
+		    	$sql = "SELECT * FROM supplier;";
+		    	$query = $conn->query($sql);
+		    	while ($result = $query->fetch_assoc()) {
+		    		echo "<option value='{$result['supplierId']}'>{$result['name']} - {$result['Address']}</option>";
+		    	}
+		     ?>
 		    </select>
 		    <label for="unitPrice">Unit Price</label>
 		    <input type="number" name="unitPrice" min="0" tabindex="5" required step="0.01">

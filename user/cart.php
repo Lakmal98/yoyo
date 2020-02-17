@@ -124,7 +124,7 @@
 						<div class="price">
 							<?php echo 'LKR ' . number_format($results['unitPrice'], 2); ?>
 							<span class="quantity-added">
-								<?php echo "X " . $results['quantity']; ?>
+								<?php echo "X " . $result['quantity']; ?>
 							</span>
 						</div>
 					</span>

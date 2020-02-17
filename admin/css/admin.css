@@ -336,3 +336,48 @@ td > form > button {
   text-decoration: underline;
   font-weight: bold;
 }
+
+.row {
+  margin: 2%;
+}
+
+.row .col {
+  font-size: 25px;
+  margin-right: 3%;
+  padding: 1%;
+  background-color: rgba(0,0,0,0.4);
+  border-radius: 4px;
+  width: 20%;
+}
+
+@media print {
+    .printReport {
+        color: #000;
+        background-color: white;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 15px;
+        font-size: 14px;
+        line-height: 18px;
+    }
+}
+
+.print {
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  font-size: 50px;
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.print:hover {
+  color: blue;
+}

@@ -62,8 +62,8 @@
 			<li class="dropdown">
 				<a href="javascript:void(0)" class="dropbtn">Reports</a>
 				<div class="dropdown-content">
-					<a href="#">About Users</a>
-					<a href="#">About Items</a>
+					<!-- <a href="#">About Users</a> -->
+					<a href="report-item">About Items</a>
 				</div>
 			</li>
 			<li>

@@ -44,7 +44,7 @@
 						echo "<td>Banned user</td>";
 						break;
 					default:
-						echo "<td>Uncomfired user</td>";
+						echo "<td>Unconfirmed user</td>";
 						break;
 				}
 				echo "<td><form method='post'><button type='submit' name='delete' value='{$result['userId']}'><i class='fas fa-trash'></i></button></form></td>";

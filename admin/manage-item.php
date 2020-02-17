@@ -23,7 +23,7 @@
 			while ($result = $query->fetch_assoc()) {
 				echo "<tr>";
 				echo "<td>{$result['itemId']}</td>";
-				echo "<td>{$result['itemName']}</td>";
+				echo "<td><form method='post' action='edit-item'><button class='edit-btn' type='submit' name='itemName' value='{$result['itemName']}'>{$result['itemName']}</button></form></td>";
 				echo "<td>{$result['quantity']}</td>";
 				echo "<td>{$result['unitPrice']}</td>";
 				echo "<td>{$result['description']}</td>";

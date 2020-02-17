@@ -8,6 +8,7 @@
 			unset($_SESSION);
 			unset($_POST);
 			header("Refresh: 0");
+			header("Location: /yoyo/index");
 		}
 	} else {
 		header("Location: /yoyo/index");

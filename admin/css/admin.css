@@ -330,3 +330,9 @@ td > form > button {
   width: 60px;
   height: 40px;
 }
+
+.edit-btn {
+  color: blue;
+  text-decoration: underline;
+  font-weight: bold;
+}

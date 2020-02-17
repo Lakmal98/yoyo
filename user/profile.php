@@ -9,6 +9,24 @@
 		} else {
 			$msg = "<div style='color: green;'>Updated Successfully.<div>";
 		}
+	} 
+
+	if (isset($_POST['change'])) {
+		$sql = "SELECT password FROM user WHERE userId = {$_SESSION['userId']};";
+		$password = (($conn->query($sql))->fetch_array())[0];
+		if (md5($_POST['currentPass']) == $password) {
+			if ($_POST['newPass'] == $_POST['newPassConf']) {
+				$pass = md5($_POST['newPass']);
+				$sql = "UPDATE user SET password = '{$pass}' WHERE userId = {$_SESSION['userId']};";
+				if ($conn->query($sql) === true) {
+					$msg = "<div style='color: green;'>Password change Successfully.<div>";
+				} else {
+					$msg = "<div style='color: red;'>Failed to change the password.<div>";
+				}
+			}
+				$msg = "<div style='color: red;'>Passwords did not match.<div>";
+		}
+		$msg = "<div style='color: red;'>Wrong password.<div>";
 	}
  ?>
 
@@ -27,15 +45,18 @@
 <body>
 	<nav id="nav">
 	  <i class="fas fa-bars" onclick="//showSideNav();"></i>
-	  <a href="../index"><i class="fas fa-home"></i></a>
+	  <a href="../index"><i class="fas fa-home" title="home"></i></a>
+	  <a href="history">
+		<i class="fas fa-history" title="Shopping history"></i>
+	  </a>
 	  <span>
 	  	<form action="index" method='get'>
-	  		<input type="text" name="s" id="searchBox" placeholder="Search...">
+	  		<input type="text" name="s" id="searchBox" placeholder="Search..." title="Search here...">
 	  		<button type="submit" name="q" id="submit" value="true"></button>
 	  	</form>
-		  <i class="fas fa-search" onclick="search();"></i>
+		  <i class="fas fa-search" onclick="search();" title="Click here to search"></i>
 		  <a href="cart" target="_blank">
-		  	<i class="fas fa-shopping-cart">
+		  	<i class="fas fa-shopping-cart" title="cart">
 	  		 	<?php 
 	  		 		$sql = "SELECT COUNT(userId) FROM cart WHERE userId = {$_SESSION['userId']};";
 	  		 		$result  = ($conn->query($sql))->fetch_array();
@@ -46,17 +67,17 @@
 		  	</i>
 		  </a>
 		  <a href="profile">
-		  	<i class="fas fa-user"></i>
+		  	<i class="fas fa-user" title="Profile"></i>
 		  </a>
 		  <form action="<?php echo $_SERVER['PHP_SELF']; ?>" id='logout-form' method='post'>
-				<i class="fas fa-sign-out-alt" onclick="document.getElementById('logout-btn').click();"></i>
+				<i class="fas fa-sign-out-alt" onclick="document.getElementById('logout-btn').click();" title="Log out"></i>
 			<button type="submit" name="logout" id="logout-btn"></button>
 		  </form>
 	  </span>
 	</nav>
 	<?php 
  		$sql = "SELECT * FROM user WHERE userId = {$_SESSION['userId']};";
- 		$result  = ($conn->query($sql))->fetch_array();
+ 		$result  = ($conn->query($sql))->fetch_assoc();
  	 ?>
 	<main>
 		<div class="form">

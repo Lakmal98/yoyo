@@ -1,4 +1,4 @@
-<?php
+	<?php
 	session_start();
  
 	if (isset($_SESSION['login']) && ($_SESSION['login']==true)) {
@@ -23,12 +23,14 @@
 		$jsonArray = array();
 		$count = 0;
 		while ($result = $query->fetch_assoc()) {
+			$sql = "UPDATE item SET quantity = quantity - {$result['quantity']} WHERE itemId = {$result['itemId']};";
+			$conn->query($sql);
 			$jsonArray[$count] = json_encode($result);
 			$count++;
 		}
 		$data =  json_encode($jsonArray);
-
-		$sql = "INSERT INTO orderhistory(userId, details) VALUES ({$_SESSION['userId']}, '{$data}');";
+		$today = date("Y-m-d");
+		$sql = "INSERT INTO orderhistory(userId, details, pDate) VALUES ({$_SESSION['userId']}, '{$data}', '{$today}');";
 		if ($conn->query($sql) === true) {
 			$sql = "DELETE FROM cart WHERE userId = {$_SESSION['userId']};";
 				if ($conn->query($sql) === false) {
@@ -36,7 +38,7 @@
 					die("Failed to purchace.");
 				} else {
 					echo "<script>alert('Payment Successfull.');</script>";
-					header("Refresh: 1;URL=../index");
+					header("Refresh: 1;URL=../history");
 				}
 		} else {
 			echo "<script>alert('Failed.');</script>";

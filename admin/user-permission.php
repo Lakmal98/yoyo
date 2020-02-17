@@ -83,12 +83,7 @@
 				echo "</tr>";
 			}
 		 ?>
-		 <?php 
-		 	if (isset($_POST['delete'])) {
-		 		echo "<script>if(confirm('Delete user {$_POST['delete']} ?')) { location.replace('php-script/delete-user?u={$_POST['delete']}');}</script>";
-		 	}
-		 ?>
-
+		
 		</table>
 		<div class="table-navigation">
 			<div>

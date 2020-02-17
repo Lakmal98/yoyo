@@ -23,10 +23,12 @@
 				} else {
 					$msg = "<div style='color: red;'>Failed to change the password.<div>";
 				}
-			}
+			} else{
 				$msg = "<div style='color: red;'>Passwords did not match.<div>";
+			}
+		} else {
+			$msg = "<div style='color: red;'>Wrong password.<div>";
 		}
-		$msg = "<div style='color: red;'>Wrong password.<div>";
 	}
  ?>
 
@@ -107,6 +109,12 @@
 				<input type="password" name="newPass">
 				<label>Confirm New Password</label>
 				<input type="password" name="newPassConf">
+				<?php 
+					if (isset($_POST['change'])) {
+						echo $msg;
+						$msg = "";
+					}
+				 ?>
 				<button class="btn" type="submit" name="change">Update Password</button>
 			</form>
 		</div>

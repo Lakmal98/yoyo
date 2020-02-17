@@ -18,8 +18,25 @@
 </head>
 <body>
 	<div class="header">
-	  <h2>YoYo Online Market</h2>
-	  <p>New Year sale</p>
+	  <h2>
+	  	<font color='red'>Y</font>
+	  	<font color='yellow'>o</font>
+	  	<font color='green'>Y</font>
+	  	<font color='blue'>o</font>
+	  	Online Market
+	  </h2>
+	  <marquee behavior="" direction="">
+	  	<font color='red'>Y</font>
+	  	<font color='yellow'>o</font>
+	  	<font color='green'>Y</font>
+	  	<font color='blue'>o</font>
+	  	 Online market | New Year Sale |  
+	  	<font color='red'>y</font>
+	  	<font color='yellow'>o</font>
+	  	<font color='green'>y</font>
+	  	<font color='blue'>o</font>
+	  	.com
+	  </marquee>
 	</div>
 
 	<nav id="nav">
@@ -85,7 +102,7 @@
 				<div class="price">
 					Rs. <?php echo $result['unitPrice']; ?>
 					<span>
-						50% off
+						<!-- 50% off -->
 					</span>
 				</div>
 				<div class="description">
